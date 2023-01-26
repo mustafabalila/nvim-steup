@@ -29,6 +29,9 @@ keymap.set("n", "<leader>th", ":tabp<CR>")
 
 -- command -b to toggle nvim-tree
 keymap.set("n", "<leader>b", ":NvimTreeToggle<CR>")
+keymap.set("n", "<leader>bb", ":NvimTreeFindFile<CR>")
+keymap.set("n", "<leader>br", ":NvimTreeRefresh<CR>")
+keymap.set("n", "<leader>bf", ":NvimTreeFocus<CR>")
 
 -- command -f to toggle telescope
 keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
