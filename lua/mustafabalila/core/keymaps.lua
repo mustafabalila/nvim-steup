@@ -28,15 +28,36 @@ keymap.set("n", "<leader>tl", ":tabn<CR>")
 keymap.set("n", "<leader>th", ":tabp<CR>")
 
 -- command -b to toggle nvim-tree
-keymap.set("n", "<leader>b", ":NvimTreeToggle<CR>")
-keymap.set("n", "<leader>bb", ":NvimTreeFindFile<CR>")
+keymap.set({"n", "i"}, "<C-b>", ":NvimTreeToggle<CR>")
+keymap.set({"n", "i"}, "<leader>bb", ":NvimTreeFindFile<CR>")
 keymap.set("n", "<leader>br", ":NvimTreeRefresh<CR>")
 keymap.set("n", "<leader>bf", ":NvimTreeFocus<CR>")
 
 -- command -f to toggle telescope
-keymap.set("n", "<leader>ff", ":Telescope find_files<CR>")
+keymap.set("n", "<C-p>", ":Telescope find_files<CR>")
 keymap.set("n", "<leader>fs", ":Telescope live_grep<CR>")
 keymap.set("n", "<leader>fg", ":Telescope git_files<CR>")
 keymap.set("n", "<leader>fc", ":Telescope grep_string<CR>")
 keymap.set("n", "<leader>fh", ":Telescope help_tags<CR>")
 keymap.set("n", "<leader>fb", ":Telescope buffers<CR>")
+
+keymap.set("n", "go", function ()
+ require("browse").input_search()
+end)
+
+keymap.set("n", "<leader>Z", ":ZenMode<CR>")
+keymap.set("n", "<C-Q>", ":q<CR>")
+--  exit insert mode with ctrl + q
+keymap.set("i", "<C-Q>", "<ESC>")
+
+vim.keymap.set({ "n", "x", "o" }, ";", ":TSTextobjectRepeatLastMoveNext<CR>")
+vim.keymap.set({ "n", "x", "o" }, ",", ":TSTextobjectRepeatLastMovePrevious<CR>")
+vim.keymap.set({ "n", "x", "o" }, "<leader>sb", ":TSTextobjectSelectNext<CR>")
+
+keymap.set("n", "<C-F>", ":lua vim.lsp.buf.format()<CR>")
+
+-- keymap.set("<D-m>", ":lua require('harpoon.mark').add_file()")
+-- keymap.set("<D-L", ":lua require('harpoon.ui').toggle_quick_menu()")
+-- keymap.set("<D-K>", ":lua require('harpoon.ui').nav_next()")
+-- keymap.set("<D-J>", ":lua require('harpoon.ui').nav_prev()")
+
